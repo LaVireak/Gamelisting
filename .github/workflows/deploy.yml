@@ -36,7 +36,7 @@ jobs:
       run: npm run build
       env:
         GITHUB_PAGES: true
-        VITE_RAWG_API_KEY: "9797285c57bb45d8a79989abae326c3d"
+        VITE_RAWG_API_KEY: ${{ secrets.VITE_RAWG_API_KEY }}
       
     - name: Setup Pages
       uses: actions/configure-pages@v4
