@@ -4,5 +4,13 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "env": {
+    "VITE_RAWG_API_KEY": "9797285c57bb45d8a79989abae326c3d"
+  },
+  "build": {
+    "env": {
+      "VITE_RAWG_API_KEY": "9797285c57bb45d8a79989abae326c3d"
+    }
+  }
 }
