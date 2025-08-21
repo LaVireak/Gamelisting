@@ -1,4 +1,4 @@
-import { RAWG_BASE_URL, RAWG_API_KEY, getRawgImageUrl } from '../constants/api';
+import { RAWG_BASE_URL, RAWG_API_KEY, getRawgImageUrl, hasApiKey } from '../constants/api';
 
 // Types for RAWG API responses
 export interface RawgGame {
@@ -71,10 +71,10 @@ class RawgService {
   private isDemoMode: boolean;
 
   constructor() {
-    this.isDemoMode = RAWG_API_KEY === 'demo_key';
+    this.isDemoMode = !hasApiKey();
     console.log('🎮 RAWG Service initialized', { 
       isDemoMode: this.isDemoMode, 
-      hasApiKey: !!RAWG_API_KEY && RAWG_API_KEY !== 'demo_key',
+      hasApiKey: hasApiKey(),
       apiKey: RAWG_API_KEY ? `${RAWG_API_KEY.substring(0, 8)}...` : 'None'
     });
     

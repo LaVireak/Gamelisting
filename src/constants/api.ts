@@ -1,8 +1,13 @@
 // RAWG API Configuration
 export const RAWG_BASE_URL = 'https://api.rawg.io/api';
 
-// RAWG API key from environment variables
-export const RAWG_API_KEY = import.meta.env.VITE_RAWG_API_KEY || 'demo_key';
+// RAWG API key from environment variables with fallback
+export const RAWG_API_KEY = import.meta.env.VITE_RAWG_API_KEY || '';
+
+// Check if API key is available
+export const hasApiKey = () => {
+  return RAWG_API_KEY && RAWG_API_KEY !== '' && RAWG_API_KEY !== 'demo_key';
+};
 
 // Image URL helper for RAWG (images come directly from API responses)
 export const getRawgImageUrl = (imageUrl: string) => {
